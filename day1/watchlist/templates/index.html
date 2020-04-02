@@ -12,9 +12,9 @@
     <p>
         总共{{ movies|length }}个电影
     </p>  <br>
-    <ul>
+    <ul class="movie-list">
         {% for movie in movies %}
-        <li>{{ movie.title }}-{{ movie.year }}</li>  <br>
+        <li>{{ movie.title }}-{{ movie.year }}</li>
         {% endfor %}
     </ul>  <br>
     <footer>
