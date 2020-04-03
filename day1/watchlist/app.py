@@ -40,6 +40,27 @@ class Movie(db.Model):
 
 @app.route("/")
 def index():
+
+    user = User.query.first()
+    movies = Movie.query.all()
+
+    return render_template("index.html", name=user, movies=movies)
+
+
+# 自定义命令
+# 建立空数据库
+@app.cli.command()   # 注册为命令
+@click.option("--drop", is_flag=True, help="先删除再创建")
+def initdb(drop):
+    if drop:
+        db.drop_all()
+    db.create_all()
+    click.echo("初始化数据库完成")
+
+
+# 向空数据库中插入数据
+@app.cli.command()
+def forge():
     name = "David"
     movies = [
         {"title": "大赢家", "year": "2020"},
@@ -50,15 +71,16 @@ def index():
         {"title": "月光宝盒", "year": "1996"},
         {"title": "速度与激情8", "year": "2020"}
     ]
-    return render_template("index.html", name=name, movies=movies)
+    user = User(name=name)
+    db.session.add(user)
+    for m in movies:
+        movie = Movie(title=m["title"], year=m["year"])
+        db.session.add(movie)
+    db.session.commit()
+    click.echo("数据添加完成")
 
 
-# 自定义命令
-@app.cli.command()   # 注册为命令
-@click.option("--drop", is_flag=True, help="先删除再创建")
-def initdb(drop):
-    if drop:
-        db.drop_all()
-    db.create_all()
-    click.echo("初始化数据库完成")
-
+@app.errorhandler(404)
+def page_not_found(e):
+    user = User.query.first()
+    return render_template("404.html", name=user)

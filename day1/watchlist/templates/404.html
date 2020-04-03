@@ -10,12 +10,10 @@
     <img class="pic" src="{{ url_for('static', filename='img/1.jpg') }}" alt="头像"> <br>
     <h2>{{ name.name }}"watch list"</h2>  <br>
     <p>
-        总共{{ movies|length }}个电影
     </p>  <br>
     <ul class="movie-list">
-        {% for movie in movies %}
-        <li>{{ movie.title }}-{{ movie.year }}</li>
-        {% endfor %}
+        <li>页面走丢了</li>
+        <a href="{{ url_for('index')}}">主页</a>
     </ul>  <br>
     <footer>
         <small> &copy;2020 &nbsp;&nbsp;&nbsp;<a href="#">1903c</a> </small>
