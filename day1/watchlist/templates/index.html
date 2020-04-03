@@ -4,6 +4,13 @@
 <p>
     总共{{ movies|length }}个电影
 </p> <br>
+<!-- 添加电影 -->
+<!-- required 不为空 -->
+<form action="" method="POST">
+    电影名称 <input type="text" name="title" required autocomplete="off">  
+    电影年份 <input type="text" name="year" required autocomplete="off">
+    <input class="btn" type="submit" value="添加">
+</form>
 <ul class="movie-list">
     {% for movie in movies %}
     <li>

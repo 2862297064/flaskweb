@@ -11,6 +11,10 @@
 <body>
     <img class="pic" src="{{ url_for('static', filename='img/1.jpg') }}" alt="头像"> <br>
     <h2>{{ user.name }}"watch list"</h2>  <br>
+    <!-- flash消息 -->
+    {% for message in get_flashed_messages() %}
+        <div class="alert">{{ message }}</div>
+    {% endfor %}
     <nav>
         <ul>
             <li>
