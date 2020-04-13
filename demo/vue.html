@@ -58,7 +58,7 @@
         },
         template:
         '<ul>'+
-            '<li v-for="item in items">'+
+            '<li v-for="item in items" v-bind:class="{removed:item.checked}">'+
                 '<div class="checkbox">'+
                     '<label for="">'+
                         '<input type="checkbox" v-model="item.checked">{{item.text}}'+
