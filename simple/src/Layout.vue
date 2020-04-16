@@ -2,7 +2,7 @@
   <div id="app">
     <div class="app-head">
       <div class="app-head-inner">
-        <img src="./assets/logo.png" alt="">
+        <img src="./assets/logo.png" alt=""><span class="app-title"></span>
         <div class="head-nav">
           <ul class="nav-list">
             <li>登录</li>
@@ -120,5 +120,11 @@ export default {
   .app-content {
     width: 1200px;
     margin: 0 auto;
+  }
+  .app-title{
+    color: #e3e4e8;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-left: 40px;
   }
 </style>
