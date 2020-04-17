@@ -42,7 +42,7 @@
 
 <script>
 import axios from 'axios'
-import SliderComponent from '../components/silderComponent'
+import SliderComponent from '../components/sliderComponent'
 export default {
   components:{
     SliderComponent
