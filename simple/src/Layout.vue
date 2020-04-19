@@ -1,12 +1,11 @@
-  
 <template>
   <div>
     <div class="app-head">
       <div class="app-head-inner">
-        <img src="./assets/logo.png" alt=""><span class="app-title">3C产品商城</span>
+        <img src="./assets/logo.png" alt=""><span class="app-title">海马3C商城</span>
         <div class="head-nav">
           <ul class="nav-list">
-            <li>登录</li>
+            <li v-on:click="showLogin">登录</li>
             <li class="nav-pile">|</li>
             <li>注册</li>
             <li class="nav-pile">|</li>
@@ -19,13 +18,28 @@
       <router-view></router-view>
     </div>
     <div class="app-footer">
-      <p>&copy; 1903C — 2020</p>
+      <p>&copy;powered by 1903C — 2020</p>
     </div>
+    <my-login v-show="isShowLogin"></my-login>
   </div>
 </template>
 
 <script>
+import MyLogin from './components/myLogin'
 export default {
+  components:{
+    MyLogin
+  },
+  data() {
+    return {
+      isShowLogin:false
+    }
+  },
+  methods: {
+    showLogin(){
+      this.isShowLogin = true
+    }
+  },
 }
 </script>
 
@@ -116,7 +130,7 @@ body{
 }
 .app-title{
   color: #f0f2f5;
-  font-size: 30px;
+  font-size: 40px;
   font-weight: bolder;
   margin-left:40px;
 }

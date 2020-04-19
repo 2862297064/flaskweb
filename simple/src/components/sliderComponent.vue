@@ -3,7 +3,7 @@
         <!-- 四张轮播图 -->
         <div v-show="nowIndex === index" class="slider-item" v-bind:class="['item'+[index+1]]" v-for="(imgUrl,index) in sliderImgList" v-bind:key="index">
             <a href="">
-                <img v-bind:src="imgUrl" alt="">
+                <img class="img" v-bind:src="imgUrl" alt="">
             </a>
         </div>
         <!-- 上一张下一张按钮 -->
@@ -126,5 +126,22 @@ export default {
     }
     .next-btn{
         right: 10px;
+    }
+    .img{
+        width: 900px;
+        height: 500px;
+    }
+    .slider-title{
+    background:#000000;
+    color: white;
+    height: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 400;
+    font-size: 30px;
+    text-align: center;
+    line-height: 30px;
+    opacity: 0.6;
     }
 </style>
